@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/img/coppel.jpg" type="image/x-icon">
+    <title>Coppel Contigo</title>
+
+  <body>
+    <!-- AGREGAR ARTICULO -->
+    <div class="contenedor">
+
+        <div class="form-area" id="myform">
+
+          <nav class="nav">
+              <div class="form-placeholder">
+                  <img class= "icon" src="/img/form-icon.png" alt=""/>
+                  Registro
+              </div>
+              <div id="myformdragarea">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <div class="nav-buttons">
+                  <button id="minForm">▬</button>
+                  <button id="fsForm">▢</button>
+                  <button id="clForm">✖</button>
+              </div>
+          </nav>
+
+            <form id="form">
+              <div class="form">
+                <div class="campos">
+                  <label for="sku">Sku:</label>
+                  <input
+                    type="text"
+                    id="sku"
+                    placeholder="#"
+                    minlength="6"
+                    maxlength="6"
+                    autofocus
+                    required
+                  />
+                </div>
+  
+                <div class="campos">
+                  <label for="articulo">Articulo:</label>
+                  <input id="articulo" maxlength="15" />
+                </div>
+  
+                <div class="campos">
+                  <label for="marca">Marca:</label>
+                  <input id="marca" maxlength="15" />
+                </div>
+  
+                <div class="campos">
+                  <label for="modelo">Modelo:</label>
+                  <input id="modelo" maxlength="20" />
+                </div>
+  
+                <div class="campos">
+                  <label for="departamento">Departamento:</label>
+                  <input id="departamento"/>
+                </div>
+  
+                <div class="campos">
+                  <label for="clase">Clase:</label>
+                  <input id="clase" />
+                </div>
+                
+                <div class="campos">
+                  <label for="familia">Familia:</label>
+                  <input id="familia" />
+                </div>
+  
+                <div class="campos stock">
+                  <label for="cantidad">Cantidad:</label>
+                  <input type="number" id="cantidad" min="1" />
+  
+                  <label for="stock" class="mr-5">Stock:</label>
+                  <input type="number" id="stock" min="1" />
+                </div>
+  
+                <div class="campos fecha">
+                  <label for="fechaAlta">Fecha Alta:</label>
+                  <input type="date" id="fechaAlta" class="fechaA"/>
+  
+                  <label for="fechaBaja" class="mr-5">Fecha Baja:</label>
+                  <input type="date" id="fechaBaja" class="fecha"/>
+                </div>
+  
+                <div class="campos end">
+                  <button type="submit" id="insertar">Guardar</button>
+                  <button type="submit" id="eliminar">Eliminar</button>
+                </div>
+              </div>
+            </form>
+        </div>
+
+        <!-- DATA BASE -->
+        <div class="database" id="myData">
+            <nav class="nav">
+                <div class="form-placeholder">
+                    <img class= "icon" src="/img/database.png" alt=""/>
+                    DataBase
+                </div>
+                <div id="myDatadragarea">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="nav-buttons">
+                  <button id="minDb">▬</button>
+                  <button id="fsDb">▢</button>
+                  <button id="clDb">✖</button>
+                </div>
+            </nav>
+            <div class="articulo-container">
+              <div class="articulo">
+                  <div class="art-container">
+                    <div class="m-top w-10"># Sku</div>
+                    <div class="m-top w-20">Articulo</div>
+                    <div class="m-top w-20">Marca</div>
+                    <div class="m-top w-20">Modelo</div>
+                    <div class="m-top w-25">Departamento</div>
+                    <div class="m-top w-20">Clase</div>
+                    <div class="m-top w-20">Familia</div>
+                    <div class="m-top w-20">Cantidad</div>
+                    <div class="m-top w-15">Stock</div>
+                    <div class="m-top w-20">Alta</div>
+                    <div class="m-top w-20">Baja</div>
+                    <div class="m-top buttons-art"></div>
+                  </div>
+                  <div id="displayData"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- barra de tareas -->
+      <div class="barra-tareas">
+          <button id="windows-logo"><img class="windows-icon" src="/img/windows-icon.png" alt=""></button>
+          <div class="barra-tareas-items">
+              <a class="minimized" id="art-item">
+                  <img class="windows-item" src="/img/form-icon.png" alt="">
+              </a>
+              <a class="minimized" id="db-item">
+                  <img class="windows-item" src="/img/database.png" alt="">
+              </a>
+          </div>
+          <div class="time-date">
+              <p id="hour">hour</p>
+              <p id="date">date</p>
+          </div>
+      </div>
+
+    <!-- Options -->
+    <div class="barra-tareas-options">
+      <div class="barra-tareas-options-container">
+          <div id="art-opt">
+              <img class="windows-item-menu" src="/img/form-icon.png" alt="">
+              <p>Articulo</p>
+          </div>
+          <div id="db-opt">
+              <img class="windows-item-menu" src="/img/database.png" alt="">
+              <p>Base de Datos</p>
+          </div>
+      </div>
+    </div>
+    
+    <!-- FUNCIONES & FIREBASE -->
+    <script src="./app.js" type="module"></script>
+    <script src="/js/nav.js"></script>
+    <script src="/js/drag.js"></script>
+  </body>
+</html>
