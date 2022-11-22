@@ -12,7 +12,6 @@
     <div class="contenedor">
 
         <div class="form-area" id="myform">
-
           <nav class="nav">
               <div class="form-placeholder">
                   <img class= "icon" src="/img/form-icon.png" alt=""/>
@@ -62,25 +61,26 @@
   
                 <div class="campos">
                   <label for="departamento">Departamento:</label>
-                  <input id="departamento"/>
+                  <select id="departamento">
+                  </select>
                 </div>
   
                 <div class="campos">
                   <label for="clase">Clase:</label>
-                  <input id="clase" />
+                  <select id="clase" ></select>
                 </div>
                 
                 <div class="campos">
                   <label for="familia">Familia:</label>
-                  <input id="familia" />
+                  <select id="familia" ></select>
                 </div>
   
                 <div class="campos stock">
                   <label for="cantidad">Cantidad:</label>
-                  <input type="number" id="cantidad" min="1" />
+                  <input type="number" id="cantidad" min="1" placeholder="0"/>
   
                   <label for="stock" class="mr-5">Stock:</label>
-                  <input type="number" id="stock" min="1" />
+                  <input type="number" id="stock" min="0" placeholder="0"/>
                 </div>
   
                 <div class="campos fecha">
@@ -98,63 +98,75 @@
               </div>
             </form>
         </div>
+    <!-- //---------------           BASE DE DATOS           ---------------// -->
 
-        <!-- DATA BASE -->
-        <div class="database" id="myData">
-            <nav class="nav">
-                <div class="form-placeholder">
-                    <img class= "icon" src="/img/database.png" alt=""/>
-                    DataBase
-                </div>
-                <div id="myDatadragarea">
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
-                <div class="nav-buttons">
-                  <button id="minDb">▬</button>
-                  <button id="fsDb">▢</button>
-                  <button id="clDb">✖</button>
-                </div>
-            </nav>
-            <div class="articulo-container">
-              <div class="articulo">
-                  <div class="art-container">
-                    <div class="m-top w-10"># Sku</div>
-                    <div class="m-top w-20">Articulo</div>
-                    <div class="m-top w-20">Marca</div>
-                    <div class="m-top w-20">Modelo</div>
-                    <div class="m-top w-25">Departamento</div>
-                    <div class="m-top w-20">Clase</div>
-                    <div class="m-top w-20">Familia</div>
-                    <div class="m-top w-20">Cantidad</div>
-                    <div class="m-top w-15">Stock</div>
-                    <div class="m-top w-20">Alta</div>
-                    <div class="m-top w-20">Baja</div>
-                    <div class="m-top buttons-art"></div>
-                  </div>
-                  <div id="displayData"></div>
-              </div>
+    <div class="database" id="myData">
+
+      <nav class="nav">
+          <div class="form-placeholder">
+              <img class= "icon" src="/img/database.png" alt=""/>
+              DataBase
+          </div>
+          <div id="myDatadragarea">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="nav-buttons">
+            <button id="minDb">▬</button>
+            <button id="fsDb">▢</button>
+            <button id="clDb">✖</button>
+          </div>
+      </nav>
+      <div class="articulo-container">
+        <div class="articulo">
+            <div class="art-container">
+                <div class="m-top w-10"># Sku</div>
+                <div class="m-top w-20">Articulo</div>
+                <div class="m-top w-20">Marca</div>
+                <div class="m-top w-20">Modelo</div>
+                <div class="m-top w-25">Departamento</div>
+                <div class="m-top w-20">Clase</div>
+                <div class="m-top w-20">Familia</div>
+                <div class="m-top w-20">Cantidad</div>
+                <div class="m-top w-15">Stock</div>
+                <div class="m-top w-20">Alta</div>
+                <div class="m-top w-20">Baja</div>
+                <div class="m-top buttons-art"></div>
             </div>
+            <div id="displayData"></div>
         </div>
       </div>
+      
+    </div>
 
-      <!-- barra de tareas -->
-      <div class="barra-tareas">
-          <button id="windows-logo"><img class="windows-icon" src="/img/windows-icon.png" alt=""></button>
-          <div class="barra-tareas-items">
-              <a class="minimized" id="art-item">
-                  <img class="windows-item" src="/img/form-icon.png" alt="">
-              </a>
-              <a class="minimized" id="db-item">
-                  <img class="windows-item" src="/img/database.png" alt="">
-              </a>
-          </div>
-          <div class="time-date">
-              <p id="hour">hour</p>
-              <p id="date">date</p>
-          </div>
+    <!-- //---------------           BARRA DE TAREAS           ---------------// -->
+
+    <!-- barra de tareas -->
+    <div class="barra-tareas">
+      <button id="windows-logo"><img class="windows-icon" src="/img/windows-icon.png" alt=""></button>
+      <div class="barra-tareas-items">
+          <a class="minimized" id="art-item">
+              <img class="windows-item" src="/img/form-icon.png" alt="">
+          </a>
+          <a class="minimized" id="depto-item">
+              <img class="windows-item" src="/img/departamento.png" alt="">
+          </a>
+          <a class="minimized" id="clase-item">
+              <img class="windows-item" src="/img/clase.png" alt="">
+          </a>
+          <a class="minimized" id="familia-item">
+              <img class="windows-item" src="/img/family.png" alt="">
+          </a>
+          <a class="minimized" id="db-item">
+              <img class="windows-item" src="/img/database.png" alt="">
+          </a>
       </div>
+      <div class="time-date">
+          <p id="hour">hour</p>
+          <p id="date">date</p>
+      </div>
+    </div>
 
     <!-- Options -->
     <div class="barra-tareas-options">
@@ -163,10 +175,121 @@
               <img class="windows-item-menu" src="/img/form-icon.png" alt="">
               <p>Articulo</p>
           </div>
+          <div id="depto-opt">
+              <img class="windows-item-menu" src="/img/departamento.png" alt="">
+              <p>Departamento</p>
+          </div>
+          <div id="clase-opt">
+              <img class="windows-item-menu" src="/img/clase.png" alt="">
+              <p>Clase</p>
+          </div>
+          <div id="familia-opt">
+              <img class="windows-item-menu" src="/img/family.png" alt="">
+              <p>Familia</p>
+          </div>
           <div id="db-opt">
               <img class="windows-item-menu" src="/img/database.png" alt="">
               <p>Base de Datos</p>
           </div>
+      </div>
+    </div>
+
+    <!-- //---------------           DEPARTAMENTO           ---------------// -->
+    <div class="form-depto" id="myDepto">
+      <nav class="nav">
+          <div class="form-placeholder">
+              <img class= "icon" src="/img/departamento.png" alt=""/>
+              Registro Departamento
+          </div>
+          <div id="myDeptodragarea">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="nav-buttons">
+              <button id="minDepto">▬</button>
+              <button id="fsDepto">▢</button>
+              <button id="clDepto">✖</button>
+          </div>
+      </nav>
+      <div class="center">
+        <form id="formDept">
+          <div class="center">
+            <label for="noDepto">No:</label>
+            <input type="number" id="noDepto" required min="1"/>
+          </div>
+          <label for="depto">Departamento:</label>
+          <input type="text" id="depto" required maxlength="20"/>
+    
+          <button id="save-departamento">Guardar</button>
+        </form>
+        <ol id="displayDepartamento"></ol>
+      </div>
+    </div>
+
+    <!-- //---------------           CLASE           ---------------// -->
+    <div class="form-depto" id="myClase">
+      <nav class="nav">
+          <div class="form-placeholder">
+              <img class= "icon" src="/img/clase.png" alt=""/>
+              Registro Clase
+          </div>
+          <div id="myClasedragarea">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="nav-buttons">
+              <button id="minClase">▬</button>
+              <button id="fsClase">▢</button>
+              <button id="clClase">✖</button>
+          </div>
+      </nav>
+      <div class="center">
+        <form id="formClase">
+          <div class="center">
+            <label for="noClase">No:</label>
+            <input type="number" id="noClase" required min="1"/>
+          </div>
+          <label for="clase">Clase:</label>
+          <input type="text" id="clase" required maxlength="20"/>
+    
+          <button id="save-clase">Guardar</button>
+        </form>
+        <ol id="displayClase"></ol>
+      </div>
+    </div>
+
+    <!-- //---------------           FAMILIA           ---------------// -->
+    <div class="form-depto" id="myFamilia">
+      <nav class="nav">
+          <div class="form-placeholder">
+              <img class= "icon" src="/img/family.png" alt=""/>
+              Registro Familia
+          </div>
+          <div id="myFamiliadragarea">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="nav-buttons">
+              <button id="minFamilia">▬</button>
+              <button id="fsFamilia">▢</button>
+              <button id="clFamilia">✖</button>
+          </div>
+      </nav>
+      <div class="center">
+        <form id="formFamilia">
+          <div class="center">
+            <label for="noFamilia">No:</label>
+            <input type="number" id="noFamilia" required min="1"/>
+          </div>
+          <label for="fam">Familia:</label>
+          <input type="text" id="fam" required maxlength="20"/>
+    
+          <button id="save-familia">Guardar</button>
+        </form>
+        <ol id="displayFamilia"></ol>
       </div>
     </div>
     
