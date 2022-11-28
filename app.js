@@ -1,14 +1,18 @@
-import {
-  onGetTasks,
-  saveTask,
-  deleteTask,
-  getTask,
-  updateTask,
-  getTasks,
+import {  onGetTasks, saveTask, deleteTask, getTask, updateTask, getTasks,
+          saveDepto, verDepto, reRenderDepto,
+          saveClase, reRenderClase, saveFam, reRenderFamilia
 } from "./js/firebase.js";
 
+// Formularios
 const form = document.getElementById("form");
+const formDepto = document.getElementById("formDept");
+const formClase = document.getElementById("formClase");
+const formFamilia = document.getElementById("formFamilia");
+// Contenedores
 const dataBase = document.getElementById("displayData");
+const containerDpto = document.getElementById("displayDepartamento");
+const containerClase = document.getElementById("displayClase");
+const containerFam = document.getElementById("displayFamilia");
 
 
 let editStatus = false;
@@ -151,3 +155,115 @@ form.addEventListener("submit", async (e) => {
     console.log(error);
   }
 });
+
+
+//---------------           DEPARTAMENTO           ---------------//
+// SAVE DEPTO
+formDepto.addEventListener('submit', async (e) =>{
+  e.preventDefault();
+  const noDepto = formDepto['noDepto'];
+  const depto = formDepto['depto'];
+
+  await saveDepto(noDepto.value, depto.value)
+  alert("Departamento agregado a 🔥Base")
+  formDepto.reset()
+  noDepto.focus()
+})
+
+// RENDER
+window.addEventListener('DOMContentLoaded', async () => {
+  await reRenderDepto((querySnapshot) => {
+      containerDpto.innerHTML = ''
+      querySnapshot.forEach (doc => {
+          const depto = doc.data()
+          containerDpto.innerHTML += `
+              <li>${depto.departamento}</li>
+          `
+      })
+
+      const selectDpto = document.getElementById('departamento')
+      selectDpto.innerHTML = ''
+      querySnapshot.forEach (doc => {
+        const depto = doc.data()
+        selectDpto.innerHTML += `
+            <option>${depto.departamento}</option>
+        `
+    })
+  })
+})
+
+//---------------           CLASE           ---------------//
+// GUARDAR
+formClase.addEventListener('submit', async (e) =>{
+  e.preventDefault();
+  const noClase = formClase['noClase'];
+  const clase = formClase['clase'];
+
+  await saveClase(noClase.value, clase.value)
+  alert("Clase agregada a 🔥Base")
+  noClase.value = ""
+  clase.value = ""
+  noClase.focus()
+})
+
+// RENDER
+window.addEventListener('DOMContentLoaded', async () => {
+  await reRenderClase((querySnapshot) => {
+      containerClase.innerHTML = ''
+      querySnapshot.forEach (doc => {
+          const clase = doc.data()
+          containerClase.innerHTML += `
+              <li>${clase.clase}</li>
+          `
+      })
+
+      const selectClase = document.getElementById('clase')
+      selectClase.innerHTML = ''
+      querySnapshot.forEach (doc => {
+        const clase = doc.data()
+        selectClase.innerHTML += `
+            <option>${clase.clase}</option>
+        `
+      })
+  })
+})
+
+//---------------           FAMILIAS           ---------------//
+
+// GUARDAR
+formFamilia.addEventListener('submit', async (e) =>{
+  e.preventDefault();
+  const noFamilia = formFamilia['noFamilia'];
+  const familia = formFamilia['fam'];
+
+  await saveFam(noFamilia.value, familia.value)
+  alert("Familia agregada a 🔥Base")
+  noFamilia.value = ""
+  familia.value = ""
+  noFam.focus()
+})
+
+// RENDER
+window.addEventListener('DOMContentLoaded', async () => {
+  await reRenderFamilia((querySnapshot) => {
+      containerFam.innerHTML = ''
+      querySnapshot.forEach (doc => {
+          const familia = doc.data()
+          containerFam.innerHTML += `
+              <li>${familia.familia}</li>
+          `
+      })
+
+      const selectFamilia = document.getElementById('familia')
+      selectFamilia.innerHTML = ''
+      querySnapshot.forEach (doc => {
+        const fam = doc.data()
+        selectFamilia.innerHTML += `
+            <option>${fam.familia}</option>
+        `
+      })
+  })
+})
+
+
+
